@@ -5,7 +5,7 @@ spider
 str(spider)
 iNEXT(spider, q=0, datatype="abundance")
 #----------------------------------------------
-#Agora vamos importar os dados exemplo do simbio
+#Agora vamos importar os dados exemplo do simbio certo
 #------------------------------------------------------------
 library(readxl)
 macki <- read_excel("exemplo-simbio/macki.xlsx")
