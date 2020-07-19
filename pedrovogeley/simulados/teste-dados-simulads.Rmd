@@ -1,6 +1,10 @@
 ---
 title: "Testando o modelo Inext com dados simulados e reais do Pedro Vogeley"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
 ---
 Primeiro vamos carregar as bibliotecas necessarias
 
@@ -20,7 +24,7 @@ View(macmata)
 mactransecto <- read_excel("mac-transecto.xlsx")
 View(mactransecto)
 macteste1 <- read_excel("mac-teste1.xlsx")
-View(mac_teste1)
+View(macteste1)
 macteste2 <- read_excel("mac-teste2.xlsx")
 View(macteste2)
 macteste3 <- read_excel("mac-teste3.xlsx")
