@@ -15,15 +15,15 @@ Tres simulados: teste1 teste2 teste3
 
 ```{r}
 
-macmata <- read_excel("pedrovogeley/simulados/mac-mata.xlsx")
+macmata <- read_excel("mac-mata.xlsx")
 View(macmata)
-mactransecto <- read_excel("pedrovogeley/simulados/mac-transecto.xlsx")
+mactransecto <- read_excel("mac-transecto.xlsx")
 View(mactransecto)
-macteste1 <- read_excel("pedrovogeley/simulados/mac-teste1.xlsx")
+macteste1 <- read_excel("mac-teste1.xlsx")
 View(mac_teste1)
-macteste2 <- read_excel("pedrovogeley/simulados/mac-teste2.xlsx")
+macteste2 <- read_excel("mac-teste2.xlsx")
 View(macteste2)
-macteste3 <- read_excel("pedrovogeley/simulados/mac-teste3.xlsx")
+macteste3 <- read_excel("mac-teste3.xlsx")
 View(macteste3)
 ```
 
