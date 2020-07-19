@@ -69,9 +69,14 @@ ggiNEXT(dadoteste3, type=1, se=TRUE, facet.var="none", color.var="site", grey=FA
 ```
 
 
-Agora rodando 500 e 1000 vezes cada
+Agora rodando 1000 vezes cada
 
 ```{r}
+dadomata1000 <- iNEXT(macmata$conta, q=0, datatype = "abundance", endpoint = 1000)
+ggiNEXT(dadomata1000, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+
+dadotransecto1000 <- iNEXT(mactransecto$conta, q=0, datatype = "abundance", endpoint = 1000)
+ggiNEXT(dadotransecto1000, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
 
 ```
 
