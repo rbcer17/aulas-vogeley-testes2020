@@ -2,23 +2,68 @@
 title: "Testando o modelo Inext com dados simulados e reais do Pedro Vogeley"
 output: html_notebook
 ---
+Primeiro vamos carregar as bibliotecas necessarias
 
 ```{r}
 library(readxl)
-macki <- read_excel("exemplo-simbio/macki.xlsx")
-mackipot <- read_excel("exemplo-simbio/macki-sim-hipotetico.xlsx")
-View(macki)
-View (mackipot)
+library(iNEXT)
 ```
 
-Agora vamos simular os dados
+Agora vamos dar entrada dos dados
+Dois datasets de dados reais: mata e transecto
+Tres simulados: teste1 teste2 teste3
 
 ```{r}
-dadograf <-iNEXT(macki$conta, q=0, datatype = "abundance")
-dadografpot <-iNEXT(mackipot$conta, q=0, datatype = "abundance")
-ggiNEXT(dadografpot, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)  
+
+macmata <- read_excel("pedrovogeley/simulados/mac-mata.xlsx")
+View(macmata)
+mactransecto <- read_excel("pedrovogeley/simulados/mac-transecto.xlsx")
+View(mactransecto)
+macteste1 <- read_excel("pedrovogeley/simulados/mac-teste1.xlsx")
+View(mac_teste1)
+macteste2 <- read_excel("pedrovogeley/simulados/mac-teste2.xlsx")
+View(macteste2)
+macteste3 <- read_excel("pedrovogeley/simulados/mac-teste3.xlsx")
+View(macteste3)
+```
+
+Agora vamos rodar as analises reais e simuladas
+
+Primeiro os dados dos pontos da mata
+
+```{r}
+dadomata <-iNEXT(macmata$conta, q=0, datatype = "abundance")
+ggiNEXT(dadomata, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)  
 
 ```
+
+Agora os dados do transecto
+
+```{r}
+dadotransecto <-iNEXT(mactransecto$conta, q=0, datatype = "abundance")
+ggiNEXT(dadotransecto, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+Agora os dados do teste 1
+
+```{r}
+dadoteste1 <-iNEXT(macteste1$conta, q=0, datatype = "abundance")
+ggiNEXT(dadoteste1, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+Agora os dados do teste 2
+```{r}
+dadoteste2 <-iNEXT(macteste2$conta, q=0, datatype = "abundance")
+ggiNEXT(dadoteste2, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+Agora os dados do teste 3
+
+```{r}
+dadoteste3 <-iNEXT(macteste3$conta, q=0, datatype = "abundance")
+ggiNEXT(dadoteste3, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
 
 Agora rodando 500 e 1000 vezes cada
 
