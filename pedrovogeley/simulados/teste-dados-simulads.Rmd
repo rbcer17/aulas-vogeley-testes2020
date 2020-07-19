@@ -1,0 +1,28 @@
+---
+title: "Testando o modelo Inext com dados simulados e reais do Pedro Vogeley"
+output: html_notebook
+---
+
+```{r}
+library(readxl)
+macki <- read_excel("exemplo-simbio/macki.xlsx")
+mackipot <- read_excel("exemplo-simbio/macki-sim-hipotetico.xlsx")
+View(macki)
+View (mackipot)
+```
+
+Agora vamos simular os dados
+
+```{r}
+dadograf <-iNEXT(macki$conta, q=0, datatype = "abundance")
+dadografpot <-iNEXT(mackipot$conta, q=0, datatype = "abundance")
+ggiNEXT(dadografpot, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)  
+
+```
+
+Agora rodando 500 e 1000 vezes cada
+
+```{r}
+
+```
+
