@@ -1,0 +1,75 @@
+---
+title: "Testando o modelo Inext com dados simulados e reais do Pedro Vogeley"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+Primeiro vamos carregar as bibliotecas necessarias
+
+```{r}
+library(readxl)
+library(iNEXT)
+```
+
+Agora vamos dar entrada dos dados
+Dois datasets de dados reais: mata e transecto
+Tres simulados: teste1 teste2 teste3
+
+```{r}
+
+macmata <- read_excel("mac-mata.xlsx")
+View(macmata)
+mactransecto <- read_excel("mac-transecto.xlsx")
+View(mactransecto)
+macteste1 <- read_excel("mac-teste1.xlsx")
+View(macteste1)
+macteste2 <- read_excel("mac-teste2.xlsx")
+View(macteste2)
+macteste3 <- read_excel("mac-teste3.xlsx")
+View(macteste3)
+```
+
+Agora vamos rodar as analises reais e simuladas
+
+Primeiro os dados dos pontos da mata
+
+```{r}
+dadomata <-iNEXT(macmata$conta, q=0, datatype = "abundance")
+ggiNEXT(dadomata, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)  
+
+```
+
+Agora os dados do transecto
+
+```{r}
+dadotransecto <-iNEXT(mactransecto$conta, q=0, datatype = "abundance")
+ggiNEXT(dadotransecto, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+Agora os dados do teste 1
+
+```{r}
+dadoteste1 <-iNEXT(macteste1$conta, q=0, datatype = "abundance")
+ggiNEXT(dadoteste1, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+Agora os dados do teste 2
+```{r}
+dadoteste2 <-iNEXT(macteste2$conta, q=0, datatype = "abundance")
+ggiNEXT(dadoteste2, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+```
+
+
+Agora rodando 1000 vezes cada mata e transecto
+
+```{r}
+dadomata1000 <- iNEXT(macmata$conta, q=0, datatype = "abundance", endpoint = 1000)
+ggiNEXT(dadomata1000, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+
+dadotransecto1000 <- iNEXT(mactransecto$conta, q=0, datatype = "abundance", endpoint = 1000)
+ggiNEXT(dadotransecto1000, type=1, se=TRUE, facet.var="none", color.var="site", grey=FALSE)
+
+```
+
